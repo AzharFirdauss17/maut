@@ -17,11 +17,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
     protected $fillable = [
-        'name',
+        'id_user_level',
+        'nama',
         'email',
-        'password',
+        'username',
+        'password'
     ];
+
+     public function userLevel()
+    {
+        return $this->belongsTo(User_Level::class, 'id_user_level');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

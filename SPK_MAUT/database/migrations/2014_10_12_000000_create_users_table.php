@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->increments('id_user'); // Pastikan ini adalah id_user
+            $table->integer('id_user_level')->unsigned();
+            $table->string('nama', 200);
+            $table->string('email', 100);
+            $table->string('username', 100);
+            $table->string('password', 100);
+            $table->foreign('id_user_level')->references('id_user_level')->on('user_level')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user');
     }
 };
