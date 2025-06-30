@@ -47,7 +47,7 @@ Route::middleware(['auth'])->group(function () {
     // Admin Dashboard
     Route::middleware(['is_admin'])->group(function () {
         Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-
+        
         // Resource Kriteria & Subkriteria
         Route::resource('kriteria', KriteriaController::class);
         Route::resource('subkriteria', SubKriteriaController::class);

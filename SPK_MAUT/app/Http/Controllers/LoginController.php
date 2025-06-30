@@ -26,7 +26,7 @@ class LoginController extends Controller
         // Coba login
         if (Auth::attempt($request->only('email', 'password'))) {
             // Redirect ke dashboard sesuai level user
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard');
         }
 
         // Jika login gagal

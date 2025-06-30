@@ -22,4 +22,10 @@ class Penilaian extends Model
     {
         return $this->belongsTo(Kriteria::class, 'id_kriteria');
     }
+    
+    public function alternatif()
+    {
+        return $this->belongsTo(Alternatif::class, 'id_alternatif', 'id_alternatif');
+    }
+
 }
